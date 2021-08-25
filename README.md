@@ -37,6 +37,7 @@ The detailed settings used are in screenshot below:
 ![image](https://user-images.githubusercontent.com/86358182/130730662-babee264-7636-4bf3-8be8-09bae7550650.png)
 
 
+
 ### Results
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
@@ -46,36 +47,43 @@ The best model was votingEsemble which is a combination of other good performing
 
 Parameters of the best model
 
-![image](https://user-images.githubusercontent.com/86358182/130730344-a313a0f6-965f-41db-b3be-411c6ae33224.png)
+![image](https://user-images.githubusercontent.com/86358182/130869228-fec2587b-d8ae-4462-ad92-0f21c21fcf78.png)
 
-Picture of the RunDetails widget
-
+Run Details widget
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
 Considering the simplisity of this dataset, Logistic regression was used for the hyperparameter tuning because it provides good accuracy and it is less inclined to overfitting especially with low dimentional dataset like this (299 rows x 12 columns).
 
+This model can be improved by trying out other algorithms, for example, tree-based models like xgboost and lightgbm. 
+Perfoming some feature transformation on the data set like cutting the continous variables into bins of categories could help improve the model performance.
+
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 The best accuracy for hyperparameter tuning was approximately 0.88
 
+![image](https://user-images.githubusercontent.com/86358182/130730344-a313a0f6-965f-41db-b3be-411c6ae33224.png)
 
+![image](https://user-images.githubusercontent.com/86358182/130865794-1a2ebe03-5ee4-4309-b5ef-abbbe1ea5e57.png)
 
+![image](https://user-images.githubusercontent.com/86358182/130865823-e8d3f31a-0b32-4856-8e8a-dde556085b15.png)
 
-
-
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+Picture of the RunDetails widget
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 The AutoML Model was deployed as a webservice using ACI webservice because it performed better on the test set.
 
-![image](https://user-images.githubusercontent.com/86358182/130732464-a01c8947-a8f7-4403-a757-3af0d263b124.png)
-![image](https://user-images.githubusercontent.com/86358182/130732497-5b3a2dec-be42-422d-be99-89c9c50614bb.png)
+![image](https://user-images.githubusercontent.com/86358182/130869008-1343cadf-a369-4e8c-b1f7-33e5b10bb419.png)
 
-![image](https://user-images.githubusercontent.com/86358182/130732526-b0200994-a15c-4604-b261-e7dd1182e3f3.png)
+Deployment Code
+
+![image](https://user-images.githubusercontent.com/86358182/130867511-32fdb602-6b69-400a-a576-c40680b5920b.png)
+
+Model endpoint
+
+
 Sample call to the endoint
 
 To query the endpoint, here is a sample data;
@@ -84,9 +92,9 @@ import requests
 
 import json
 
-scoring_uri = "http://d1828af7-0fb5-486d-841c-35c5fca55847.southcentralus.azurecontainer.io/score"
+scoring_uri = "http://1677aa14-2086-4ca7-bcf8-045a08c4e2ce.southcentralus.azurecontainer.io/score"
 
-key = "DxnlfpGm3Kaa58RVTic9eE6c9XLczhJe"
+key = "7Xxr6kaBqQKQfqbTeto8LJGnmuC88MuG"
 
 data = {
     "data": [
@@ -139,10 +147,5 @@ print(resp.json())
 
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+A screencast recording for this project is available here https://youtu.be/8LqSgYSe0DM
 
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
